@@ -13,4 +13,5 @@ before_script:
 
 script:
     coverage run --branch --source groups -m py.test
-
+after_success:
+    coveralls
