@@ -1,8 +1,9 @@
 class Group:
+
     def __init__(self, Gr, grtype):
         self.Gr = Gr
         self._grtype = grtype
-        self.binop = lambda x,y: (x+ y) % len(self.Gr)
+        self.binop = lambda x, y: (x + y) % len(self.Gr)
         self._abelian = self._isAbelian(self.Gr)
         self._properties = {}
 
@@ -15,6 +16,7 @@ class Group:
         ''' Product of two groups
         '''
         pass
+
     def __str__(self):
         return self._grtype
 
@@ -31,15 +33,20 @@ class Group:
         for item1 in Gr:
             for item2 in Gr:
                 # Check Commutativity
-                commut = all([self.binop(item1[i],item2[i]) == self.binop(item2[i], item1[i]) for i in range(len(item1))])
+                commut = all([self.binop(item1[i], item2[i]) == self.binop(
+                    item2[i], item1[i]) for i in range(len(item1))])
                 if commut is False:
                     return False
                 # Check closure
-                closure = all([self.binop(item1[i], item2[i]) in item1 for i in range(len(item1))])
+                closure = all(
+                    [self.binop(item1[i], item2[i]) in item1
+                        for i in range(len(item1))])
                 if closure is False:
                     return False
                 # Check identity
-                ident = all([self.binop(item1[i], 1) == self.binop(1, item1[i]) for i in range(len(item1))])
+                ident = all(
+                    [self.binop(item1[i], 1) == self.binop(1, item1[i])
+                        for i in range(len(item1))])
                 if ident is False:
                     return False
                 # TODO: Associativity
@@ -74,4 +81,3 @@ class Group:
         ''' Return dictionary of properties
         '''
         return self._properties
-

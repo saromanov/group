@@ -1,5 +1,6 @@
-from .group import *
+from .group import Group
 import itertools
+
 
 def Sn(N):
     ''' Generate symmetric group
@@ -10,6 +11,7 @@ def Sn(N):
     gr = Group(items, 'Sn({0})'.format(N))
     gr.addProperty('rational', True)
     return gr
+
 
 def Zn(N):
     ''' Generate cyclic group
@@ -26,5 +28,3 @@ def Zn(N):
             tmpresult.append((item + item2) % N)
         result.append(tmpresult)
     return Group(result, 'Zn({0})'.format(N))
-
-
