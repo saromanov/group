@@ -14,8 +14,8 @@ import groups
 gr1 = groups.Sn(4) # Create symmetric group
 gr2 = groups.Zn(4) # Create cyclic group
 # Check is groups is Abelian
-gr1.isAbelian()
-gr2.isAbelian()
+gr1.is_abelian()
+gr2.is_abelian()
 ```
 
 ## API
@@ -24,10 +24,10 @@ Set binary operation to the group. By default is is modulo operation
 ```python
 import groups
 gr = groups.Zn(4)
-gr.setBinOp(lambda (x,y): x + y)
+gr.set_binop(lambda (x,y): x + y)
 ```
 
-### group.isAbelian
+### group.is_abelian
 Return True if group is abelian and False otherwise
 
 ### group.inverse
