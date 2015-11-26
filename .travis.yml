@@ -11,6 +11,7 @@ install:
     -  pip install coveralls 
 before_script:
     flake8 .
+    pylint --disable=missing-docstring,invalid-name,fixme *.py
 
 script:
     coverage run --source=groups -m py.test
