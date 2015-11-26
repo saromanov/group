@@ -1,18 +1,18 @@
-class Group:
+class Group(object):
 
-    def __init__(self, Gr, grtype):
-        self.Gr = Gr
+    def __init__(self, group, grtype):
+        self._group = group
         self._grtype = grtype
-        self.binop = lambda x, y: (x + y) % len(self.Gr)
-        self._abelian = self._isAbelian(self.Gr)
+        self.binop = lambda x, y: (x + y) % len(self._group)
+        self._abelian = self._is_abelian(self._group)
         self._properties = {}
 
-    def setBinOp(self, binop):
+    def set_binop(self, binop):
         ''' set user binary operation over group
         '''
         self.binop = binop
 
-    def __mul__(self, Gr):
+    def __mul__(self, group):
         ''' Product of two groups
         '''
         pass
@@ -26,12 +26,12 @@ class Group:
     def replace(self, item):
         pass
 
-    def isAbelian(self):
+    def is_abelian(self):
         return self._abelian
 
-    def _isAbelian(self, Gr):
-        for item1 in Gr:
-            for item2 in Gr:
+    def _is_abelian(self, group):
+        for item1 in group:
+            for item2 in group:
                 # Check Commutativity
                 commut = all([self.binop(item1[i], item2[i]) == self.binop(
                     item2[i], item1[i]) for i in range(len(item1))])
@@ -53,20 +53,20 @@ class Group:
         return True
 
     def elements(self):
-        if len(self.Gr) == 0:
+        if len(self._group) == 0:
             raise Exception("Group not contain any elements")
-        return list(sorted(self.Gr[0]))
+        return list(sorted(self._group[0]))
 
     def inverse(self, elem):
         ''' Return inverse element
         '''
-        elems = self.elemnets()
+        elems = self.elements()
         for item in elems:
             if item * elem == 1:
                 return item
         raise Exception("Inverse element is bot found")
 
-    def addProperty(self, propertyname, value):
+    def add_property(self, propertyname, value):
         ''' addProperty stores property valid
             for group
             Args:

@@ -1,3 +1,3 @@
 # flake8: noqa
-from .groups import *
-from .group import *
+from groups.groups import Sn, Zn
+from groups.group import Group

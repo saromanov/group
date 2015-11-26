@@ -5,7 +5,7 @@ class TestGroup:
 
     def test_abelian(self):
         gr1 = groups.Zn(4)
-        assert gr1.isAbelian()
+        assert gr1.is_abelian()
 
     def test_elements(self):
         gr1 = groups.Zn(2)

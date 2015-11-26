@@ -9,7 +9,7 @@ def Sn(N):
         raise Exception("Size must be > 0")
     items = [item for item in itertools.permutations(list(range(N)))]
     gr = Group(items, 'Sn({0})'.format(N))
-    gr.addProperty('rational', True)
+    gr.add_property('rational', True)
     return gr
 
 
