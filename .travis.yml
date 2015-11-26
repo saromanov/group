@@ -9,6 +9,8 @@ install:
     - "pip install -r requirements-dev.txt"
     -  pip install flake8
     -  pip install coveralls 
+    -  pip install astroid
+    -  pip install pylint 
 before_script:
     - flake8 .
     - pylint --disable=missing-docstring,invalid-name,fixme *.py
