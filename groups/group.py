@@ -17,6 +17,13 @@ class Group(object):
         '''
         pass
 
+    def __add__(self, othergroup):
+        ''' Addition of two groups. Groups must be abelian
+        '''
+        if self.is_abelian() is False or othergroup.is_abelian is False:
+            raise Exception("Both groups must be abelian")
+
+
     def __str__(self):
         return self._grtype
 
