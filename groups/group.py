@@ -3,6 +3,9 @@ class Group(object):
     def __init__(self, group, grtype):
         self._group = group
         self._grtype = grtype
+        if len(self._group) == 0:
+            raise Exception("Group not contain any elements")
+
         self.binop = lambda x, y: (x + y) % len(self._group)
         self._abelian = self._is_abelian(self._group)
         self._properties = {}
